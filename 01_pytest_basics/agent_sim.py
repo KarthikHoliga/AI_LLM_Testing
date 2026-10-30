@@ -9,11 +9,9 @@ class LLMAgent:
     def generate_response(self, prompt: str) -> Dict[str, Any]:
         start_time = time.time()
         
-        # Guardrail: empty prompt check
         if not prompt or not prompt.strip():
             raise ValueError("Prompt cannot be empty")
 
-        # Simulated response logic
         if "error" in prompt.lower():
             return {
                 "status": "error",
@@ -21,8 +19,7 @@ class LLMAgent:
                 "latency_sec": round(time.time() - start_time, 4),
             }
 
-        # Simulated success response
-        time.sleep(0.1) # Simulate network latency
+        time.sleep(0.1)
         return {
             "status": "success",
             "model": self.model_name,
